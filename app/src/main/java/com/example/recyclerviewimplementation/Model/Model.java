@@ -1,4 +1,4 @@
-package com.example.recyclerviewimplementation;
+package com.example.recyclerviewimplementation.Model;
 
 
 public class Model {

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -12,6 +11,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.recyclerviewimplementation.Adapter.AdapterClass;
+import com.example.recyclerviewimplementation.Model.Model;
 import com.example.recyclerviewimplementation.databinding.ActivityMainBinding;
 
 import org.json.JSONArray;

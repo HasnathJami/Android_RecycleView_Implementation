@@ -1,4 +1,4 @@
-package com.example.recyclerviewimplementation;
+package com.example.recyclerviewimplementation.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.recyclerviewimplementation.Model.Model;
+import com.example.recyclerviewimplementation.R;
 
 import java.util.ArrayList;
 
