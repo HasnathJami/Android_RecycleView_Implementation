@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -21,10 +22,12 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+
+
+public class MainActivityForVolley extends AppCompatActivity {
 
     ActivityMainBinding binding;
-    ArrayList<Model> list;
+    ArrayList<Model> list=new ArrayList<>(); // new ArrayList<>() is must
     RequestQueue requestQueue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
         list=new ArrayList<>();
         fetchData();
+
+
 
 
 
@@ -70,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                          e.printStackTrace();
                      }
 
-                     AdapterClass adapterClass=new AdapterClass(MainActivity.this,list);
+                     AdapterClass adapterClass=new AdapterClass(MainActivityForVolley.this,list);
                      binding.recyclerViewId.setAdapter(adapterClass);
                  }
 
@@ -78,9 +83,11 @@ public class MainActivity extends AppCompatActivity {
          }, new Response.ErrorListener() {
              @Override
              public void onErrorResponse(VolleyError error) {
-                 //Toast.makeText(MainActivity.this, error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                 Toast.makeText(MainActivityForVolley.this, error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
              }
          });
          requestQueue.add(jsonArrayRequest);
     }
+
+
 }
