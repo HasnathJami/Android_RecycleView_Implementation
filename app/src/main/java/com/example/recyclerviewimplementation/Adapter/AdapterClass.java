@@ -1,14 +1,18 @@
 package com.example.recyclerviewimplementation.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.recyclerviewimplementation.DetailActivity;
 import com.example.recyclerviewimplementation.Model.Model;
 import com.example.recyclerviewimplementation.R;
 
@@ -47,6 +51,24 @@ public class AdapterClass  extends RecyclerView.Adapter<AdapterClass.viewHolder>
         holder.tv4.setText(model.getBody());
 
         //Glide.with(context).load(model.getPoster()).into(holder.imageViewId);
+        //Picasso.get().load(model.getImage()).into(holder.bookImage);
+        holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(context, DetailActivity.class);
+                Bundle bundle=new Bundle();
+
+                bundle.putString("uId",model.getUserId());
+                bundle.putString("jId",model.getId());
+                bundle.putString("jTitle",model.getTitle());
+                bundle.putString("jBody",model.getBody());
+                intent.putExtras(bundle);
+
+                context.startActivity(intent);
+
+            }
+        });
+
 
     }
 
@@ -59,6 +81,7 @@ public class AdapterClass  extends RecyclerView.Adapter<AdapterClass.viewHolder>
     public class viewHolder extends RecyclerView.ViewHolder{
 
         TextView tv1,tv2,tv3,tv4;
+        ConstraintLayout constraintLayout;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -66,6 +89,8 @@ public class AdapterClass  extends RecyclerView.Adapter<AdapterClass.viewHolder>
             tv2=itemView.findViewById(R.id.textView2Id);
             tv3=itemView.findViewById(R.id.textView3Id);
             tv4=itemView.findViewById(R.id.textView4Id);
+            constraintLayout=itemView.findViewById(R.id.samplaLayoutId);
+
         }
     }
 }
